@@ -15,30 +15,11 @@ variables:
   - group: AWS Credentials
 
 steps:
-
-  - script: sudo apt update
-    displayName: 'Update APT sources'
-
-  - script: echo Hello, world!
-    displayName: 'Run a one-line script'
-
-  - script: ./Tools/CI/Bootstrapper/init.sh
-    displayName: 'Prepare pre-build environment, init phase'
-
-  - script: ./Tools/CI/Builder/Build.sh
-    displayName: 'build phase'
-
-  - script: |
-      echo Add other tasks to build, test, and deploy your project.
-      echo See https://aka.ms/yaml
-    displayName: 'Run a multi-line script'
-
-  - script: |
-      sudo pip3 install --upgrade pip
-      pip3 install awscli --upgrade --user
-      export PATH="/home/vsts/.local/bin:$PATH"
-      aws --version
-      echo What
-      echo $AWS_ACCESS_KEY_ID
-    displayName: 'Install AWS CLI'
+  # Node install
+  - task: NodeTool@0
+    displayName: Node install
+    inputs:
+      versionSpec: '6.x' # The version we're installing
+  # Write the installed version to the command line
+  - script: which node
 
