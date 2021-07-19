@@ -14,10 +14,14 @@ pool:
 variables:
   - group: AWS Credentials
 
-steps:
-  # Write the installed version to the command line
-  - task: CmdLine@2
-    inputs:
-      script: 'sudo apt update'
-    displayName: 'Update APT sources'
+stages:
+  - stage: Run_and_publish_unit_tests
+    jobs:
+      - job:
+        steps:
+          # Write the installed version to the command line
+          - task: CmdLine@2
+            inputs:
+              script: 'sudo apt update'
+            displayName: 'Update APT sources'
 
