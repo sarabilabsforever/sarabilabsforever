@@ -15,11 +15,9 @@ variables:
   - group: AWS Credentials
 
 steps:
-  # Node install
-  - task: NodeTool@0
-    displayName: Node install
-    inputs:
-      versionSpec: '6.x' # The version we're installing
   # Write the installed version to the command line
-  - script: which node
+  - task: CmdLine@2
+      inputs:
+        script: sudo apt update
+      displayName: 'Update APT sources'
 
