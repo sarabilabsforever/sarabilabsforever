@@ -18,6 +18,6 @@ steps:
   # Write the installed version to the command line
   - task: CmdLine@2
     inputs:
-      script: sudo apt update
+      script: 'sudo apt update'
     displayName: 'Update APT sources'
 
