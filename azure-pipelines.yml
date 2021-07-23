@@ -3,7 +3,7 @@ pool:
 stages:
   - stage: Build
     jobs:
-      - template: job-build.yml@templates
+      - template: job-build.yml
         parameters:
           preBuild:
             - task: Bash@3
