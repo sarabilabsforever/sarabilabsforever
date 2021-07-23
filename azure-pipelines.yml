@@ -1,8 +1,16 @@
-pool:
-  vmImage: 'ubuntu-latest'
 jobs:
-  job1:
-    runs-on: ubuntu-latest
+  - job: Linux
+    pool:
+      vmImage: 'ubuntu-latest'
     steps:
-      - name: First script from job1
-        run: echo We can get global values for multiple jobs $BUILD_CONFIGURATION
+      - script: echo hello from Linux
+  - job: macOS
+    pool:
+      vmImage: 'macOS-latest'
+    steps:
+      - script: echo hello from macOS
+  - job: Windows
+    pool:
+      vmImage: 'windows-latest'
+    steps:
+      - script: echo hello from Windows
