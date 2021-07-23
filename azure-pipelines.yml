@@ -5,4 +5,23 @@ stages:
     jobs:
       - template: job-build.yml@templates
         parameters:
-        # Pass all parameters here
+          preBuild:
+            - task: Bash@3
+              displayName: 'Add custom configuration'
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo Add a specific configuration
+            - task: Bash@3
+              displayName: 'Define application version'
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo Define the application version automatically
+          postBuild:
+            - task: Bash@3
+              displayName: 'Push git tag'
+              inputs:
+                targetType: 'inline'
+                script: |
+                  echo Push a tag to the Git repository

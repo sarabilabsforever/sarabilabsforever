@@ -1,6 +1,7 @@
 # job-build.yml
 parameters:
-# list of parameters needed here
+  preBuild: [ ]
+  postBuild: [ ]
 
 jobs:
   - job:
@@ -13,7 +14,6 @@ jobs:
           targetType: 'inline'
           script: |
             echo Restore all packages needed
-
       - task: Bash@3
         displayName: 'Install certificates'
         inputs:
@@ -21,12 +21,16 @@ jobs:
           script: |
             echo Install all the certificates needed
 
+      - ${{ parameters.preBuild }} # Here we start the prebuild steps
+
       - task: Bash@3
         displayName: 'Build'
         inputs:
           targetType: 'inline'
           script: |
             echo This script represents the build tasks
+
+      - ${{ parameters.postBuild }} # Here we start the postbuild steps
 
       - task: Bash@3
         displayName: 'Publish'
