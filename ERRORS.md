@@ -1,0 +1,1 @@
+A task is missing. The pipeline references a task called 'Bash'. This usually indicates the task isn't installed, and you may be able to install it from the Marketplace: https://marketplace.visualstudio.com. (Task version 3, job 'Job1', step ''.)

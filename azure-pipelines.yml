@@ -1,27 +1,6 @@
 pool:
   vmImage: 'ubuntu-latest'
 stages:
-  - stage: Build
-    jobs:
-      - template: job-build.yml
-        parameters:
-          preBuild:
-            - task: Bash@3
-              displayName: 'Add custom configuration'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo Add a specific configuration
-            - task: Bash@3
-              displayName: 'Define application version'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo Define the application version automatically
-          postBuild:
-            - task: Bash@3
-              displayName: 'Push git tag'
-              inputs:
-                targetType: 'inline'
-                script: |
-                  echo Push a tag to the Git repository
+  - steps:
+      - name: First script from job1
+        run: echo We can get global values for multiple jobs $BUILD_CONFIGURATION
