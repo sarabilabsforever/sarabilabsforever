@@ -1,6 +1,8 @@
 pool:
   vmImage: 'ubuntu-latest'
-stages:
-  - steps:
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
       - name: First script from job1
         run: echo We can get global values for multiple jobs $BUILD_CONFIGURATION
