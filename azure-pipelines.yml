@@ -3,5 +3,25 @@ pool:
 
 container: ubuntu:18.04
 
+stages:
+- stage: firststage
+jobs:
+- job: firstjob
 steps:
-- bash: pwd
+- bash: |
+FOO="some value"
+mkdir -p $(Pipeline.Workspace)/variables
+echo "$FOO" > $(Pipeline.Workspace)/variables/FOO
+- publish: $(Pipeline.Workspace)/variables
+artifact: variables
+- stage: secondstage
+jobs:
+- job: secondjo
+steps:
+- download: current
+artifact: variables
+- bash: |
+FOO=$(cat $(Pipeline.Workspace)/variables/FOO)
+echo "##vso[task.setvariable variable=FOO]$FOO"
+- bash: |
+echo "$(FOO)"
