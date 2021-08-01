@@ -21,6 +21,12 @@ jobs:
             brew doctor
             brew update
       - task: shellexec@0
+        displayName: "Check Python Version"
+        inputs:
+          code: |
+            python --version
+            pip --versions
+      - task: shellexec@0
         displayName: "Install AWS CLI2"
         inputs:
           code: |
