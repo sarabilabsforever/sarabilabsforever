@@ -10,4 +10,4 @@ jobs:
         vmImage: 'vs2017-win2016'
       timeoutInMinutes: 180
       steps:
-      - script: echo hello from Windows
+      - pwsh: Write-Host "hello World"
