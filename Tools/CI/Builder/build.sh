@@ -1,4 +1,4 @@
 #!/bin/bash
 echo Hello World --- build
-su -c pwd /
+su -c pwd
 
