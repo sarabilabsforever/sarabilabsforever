@@ -7,14 +7,5 @@ jobs:
     pool:
       vmImage: "macOS-10.14"
     steps:
-      - script: echo hello from macOS Mojave
-  - job: macOS1013
-    pool:
-      vmImage: "macOS-10.13"
-    steps:
-      - script: echo hello from macOS High Sierra
-  - job: macOSlatest
-    pool:
-      vmImage: "macOS-latest"
-    steps:
-      - script: echo hello from the latest version of macOS available
+      - script: echo Hello from macOS-10.14
+
