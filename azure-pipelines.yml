@@ -1,5 +1,13 @@
 pool:
-  vmImage: 'ubuntu-latest'
+  vmImage: "ubuntu-18.04"
+
+container: ubuntu:18.04
 
 steps:
-- script: sudo apt-get install -y default-jre
+  - task: shellexec@0
+    inputs:
+      code: 'sudo apt-get install -y default-jre'
+  - task: shellexec@0
+    inputs:
+      code: |
+        ./Tools/CI/Builder/build.sh
