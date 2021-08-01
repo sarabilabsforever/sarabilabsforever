@@ -1,13 +1,20 @@
-pool:
-  vmImage: "macOS-10.15"
+---
+trigger:
+  - master
 
-container: macOS-10.15
-
-steps:
-  - task: shellexec@0
-    inputs:
-      code: 'brew install curl'
-  - task: shellexec@0
-    inputs:
-      code: |
-        curl --version
+jobs:
+  - job: macOS
+    pool:
+      vmImage: "macOS-10.14"
+    steps:
+      - script: echo hello from macOS Mojave
+  - job: macOS
+    pool:
+      vmImage: "macOS-10.13"
+    steps:
+      - script: echo hello from macOS High Sierra
+  - job: macOS
+    pool:
+      vmImage: "macOS-latest"
+    steps:
+      - script: echo hello from the latest version of macOS available
