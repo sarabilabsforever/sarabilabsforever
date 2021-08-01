@@ -8,20 +8,23 @@ jobs:
       vmImage: "macOS-10.14"
     timeoutInMinutes: 180
     steps:
-    - task: shellexec@0
-      inputs:
-        code: |
-          echo building $(Build.BuildNumber)
-    - task: shellexec@0
-      inputs:
-        code: |
-          pwd
-          ls -lsa
-          curl --version
-          curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
-          sudo installer -pkg AWSCLIV2.pkg -target /
-          aws --version
-
-          
-
-
+      - task: shellexec@0
+        displayName: "Display Build Number"
+        inputs:
+          code: |
+            echo building $(Build.BuildNumber)
+      - task: shellexec@0
+        displayName: "port version"
+        inputs:
+          code: |
+            port version
+      - task: shellexec@0
+        displayName: "Install AWS CLI2"
+        inputs:
+          code: |
+            pwd
+            ls -lsa
+            curl --version
+            curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+            sudo installer -pkg AWSCLIV2.pkg -target /
+            aws --version
