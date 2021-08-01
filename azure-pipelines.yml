@@ -13,6 +13,7 @@ steps:
         #!/bin/bash
         echo Hello World --- init
         ls -lsa 
+        sudo mkdir -p /var/lib/apt/lists/partial
         apt update && sudo apt upgrade -y
         apt install curl -y
         curl --version
