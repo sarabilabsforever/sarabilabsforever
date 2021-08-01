@@ -1,7 +1,7 @@
 pool:
-  vmImage: "macos-latest"
+  vmImage: "macOS-10.15"
 
-container: macos-latest
+container: macOS-10.15
 
 steps:
   - task: shellexec@0
