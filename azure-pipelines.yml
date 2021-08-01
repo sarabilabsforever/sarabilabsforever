@@ -24,8 +24,9 @@ jobs:
         displayName: "Check Python Version"
         inputs:
           code: |
-            python --version
-            pip --versions
+            brew install python@3.9 pip
+            python3 --version
+            pip3 --versions
       - task: shellexec@0
         displayName: "Install AWS CLI2"
         inputs:
