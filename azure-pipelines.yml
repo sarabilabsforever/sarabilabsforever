@@ -12,4 +12,5 @@ steps:
       code: |
         #!/bin/bash
         echo Hello World --- init
+        ls -lsa 
 
