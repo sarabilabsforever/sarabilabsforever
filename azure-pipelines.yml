@@ -1,13 +1,41 @@
-pool:
-  vmImage: "ubuntu-18.04"
+---
+trigger:
+  - master
 
-container: ubuntu:18.04
+jobs:
+  - job: 'Test'
+    pool:
+      vmImage: 'ubuntu-latest'
+    strategy:
+      matrix:
+        # <-- SNIP BEGIN -->
+        py27:
+          python.version: '2.7'
+          tox.env: py27
+        py37:
+          python.version: '3.7'
+          tox.env: py37
+        docs:
+          python.version: '3.7'
+          tox.env: docs
+        # <-- SNIP END -->
 
-steps:
-  - task: shellexec@0
-    inputs:
-      code: 'su vsts_azpcontainer'
-  - task: shellexec@0
-    inputs:
-      code: |
-        ./Tools/CI/Builder/build.sh
+    steps:
+      - task: UsePythonVersion@0
+        displayName: Get Python for Python tools.
+        inputs:
+          versionSpec: '3.7'
+          addToPath: false
+        name: pyTools
+
+      - script: $(pyTools.pythonLocation)/bin/pip install --upgrade tox
+        displayName: Install Python-based tools.
+
+      - task: UsePythonVersion@0
+        inputs:
+          versionSpec: '$(python.version)'
+          architecture: 'x64'
+        displayName: Use cached Python $(python.version) for tests.
+
+      - script: $(pyTools.pythonLocation)/bin/tox -e $(tox.env)
+        displayName: run tox -e $(tox.env)
