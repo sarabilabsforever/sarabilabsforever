@@ -7,4 +7,9 @@ steps:
   - task: shellexec@0
     inputs:
       code: 'cat /etc/os-release'
+  - task: shellexec@0
+    inputs:
+      code: |
+        #!/bin/bash
+        echo Hello World --- init
 
