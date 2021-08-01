@@ -3,17 +3,6 @@ pool:
 
 container: ubuntu:18.04
 
-- task: shellexec@0
-  inputs:
-    code: 'pwd'
-- task: WaitForBuildToFinish@2
-  inputs:
-    definitionIsInCurrentTeamProject: true
-    ignoreSslCertificateErrors: false
-    waitForQueuedBuildsToFinishRefreshTime: '60'
-    failTaskIfBuildsNotSuccessful: true
-    cancelBuildsIfAnyFails: true
-    treatPartiallySucceededBuildAsSuccessful: false
-    downloadBuildArtifacts: true
-    clearVariable: true
-    authenticationMethod: 'Personal Access Token'
+steps:
+  - bash: pwd
+
