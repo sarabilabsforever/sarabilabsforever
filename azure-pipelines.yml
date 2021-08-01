@@ -1,13 +1,13 @@
 pool:
-  vmImage: "Ubuntu-16.04"
+  vmImage: "macos-latest"
 
-container: Ubuntu-16.04
+container: macos-latest
 
 steps:
   - task: shellexec@0
     inputs:
-      code: 'sudo apt-get install -y default-jre'
+      code: 'brew install curl'
   - task: shellexec@0
     inputs:
       code: |
-        ./Tools/CI/Builder/build.sh
+        curl --version
