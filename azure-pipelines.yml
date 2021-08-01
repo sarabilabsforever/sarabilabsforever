@@ -6,6 +6,5 @@ container: ubuntu:18.04
 steps:
   - task: shellexec@0
     inputs:
-      code: |
-      cat /etc/os-release
+      code: 'cat /etc/os-release'
 
