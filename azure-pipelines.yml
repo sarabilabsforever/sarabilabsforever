@@ -7,8 +7,7 @@ jobs:
     pool:
       vmImage: "macOS-10.14"
     steps:
-      - script: 'pwd'
-        displayName: Install Python-based tools.
+      - script: echo hello from macOS Mojave
 
           
 
