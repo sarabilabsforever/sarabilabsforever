@@ -6,5 +6,3 @@ container: ubuntu:18.04
 steps:
 - bash: |
 pwd
-- publish: $(Pipeline.Workspace)/variables
-artifact: variables
