@@ -27,7 +27,7 @@ jobs:
             brew install python@3.9
             brew postinstall python@3.9
             python3 --version
-            pip --versions
+            pip --version
       - task: shellexec@0
         displayName: "Install AWS CLI2"
         inputs:
