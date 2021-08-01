@@ -3,6 +3,8 @@ pool:
 
 container: ubuntu:18.04
 
+steps:
+
 # maven-package-owasp-scan.yml@templates
 stages:
   - stage: Build
