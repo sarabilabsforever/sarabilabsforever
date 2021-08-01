@@ -11,6 +11,10 @@ jobs:
     - task: shellexec@0
       inputs:
         code: |
+          echo building $(Build.BuildNumber)
+    - task: shellexec@0
+      inputs:
+        code: |
           pwd
           ls -lsa
           curl --version
