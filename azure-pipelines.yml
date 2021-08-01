@@ -3,17 +3,17 @@ trigger:
   - master
 
 jobs:
-  - job: macOS
+  - job: macOS1014
     pool:
       vmImage: "macOS-10.14"
     steps:
       - script: echo hello from macOS Mojave
-  - job: macOS
+  - job: macOS1013
     pool:
       vmImage: "macOS-10.13"
     steps:
       - script: echo hello from macOS High Sierra
-  - job: macOS
+  - job: macOSlatest
     pool:
       vmImage: "macOS-latest"
     steps:
