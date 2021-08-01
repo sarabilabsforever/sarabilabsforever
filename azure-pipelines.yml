@@ -1,22 +1,13 @@
----
-trigger:
-  - master
+pool:
+  vmImage: "Ubuntu-16.04"
 
-jobs:
-  - job: 'Test'
-    pool:
-      vmImage: 'ubuntu-latest'
-    strategy:
-      matrix:
-        # <-- SNIP BEGIN -->
-        py27:
-          python.version: '2.7'
-          tox.env: py27
-        py37:
-          python.version: '3.7'
-          tox.env: py37
-        docs:
-          python.version: '3.7'
-          tox.env: docs
-        # <-- SNIP END -->
+container: Ubuntu-16.04
 
+steps:
+  - task: shellexec@0
+    inputs:
+      code: 'sudo apt-get install -y default-jre'
+  - task: shellexec@0
+    inputs:
+      code: |
+        ./Tools/CI/Builder/build.sh
