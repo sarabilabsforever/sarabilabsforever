@@ -1,11 +1,13 @@
 ---
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
+
 trigger:
   - master
 
 jobs:
-  - job: macOS-latest
+  - job: macOS-10.15
     pool:
-      vmImage: "macOS-latest"
+      vmImage: "macOS-10.15"
     timeoutInMinutes: 180
     steps:
       - task: shellexec@0
