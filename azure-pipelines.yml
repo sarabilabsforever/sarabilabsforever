@@ -14,8 +14,6 @@ jobs:
         displayName: Calling Powershell
         inputs:
           Script: 'Write-Output ''Hello world'''
-
       - task: ChocolateyToolInstaller@0
-        displayName: Install Chocolatey
         inputs:
           force: true
