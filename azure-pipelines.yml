@@ -7,5 +7,9 @@ jobs:
     pool:
       vmImage: "macOS-10.14"
     steps:
-      - bash: echo Hello from macOS-10.14
+      - script: pwd
+        displayName: Install Python-based tools.
+
+          
+
 
