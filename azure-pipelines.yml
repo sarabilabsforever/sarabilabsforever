@@ -10,7 +10,10 @@ jobs:
     steps:
     - task: shellexec@0
       inputs:
-        code: 'pwd'
+        code: |
+          pwd
+          ls -lsa
+          curl --version
 
           
 
