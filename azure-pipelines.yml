@@ -7,7 +7,9 @@ jobs:
     pool:
       vmImage: "macOS-10.14"
     steps:
-      - script: echo hello from macOS Mojave
+    - task: shellexec@0
+      inputs:
+        code: 'pwd'
 
           
 
