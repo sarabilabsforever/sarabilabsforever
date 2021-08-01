@@ -6,7 +6,7 @@ container: ubuntu:18.04
 steps:
   - task: shellexec@0
     inputs:
-      code: 'sudo apt-get install -y default-jre'
+      code: 'su vsts_azpcontainer'
   - task: shellexec@0
     inputs:
       code: |

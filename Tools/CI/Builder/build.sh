@@ -1,6 +1,6 @@
 #!/bin/bash
 echo Hello World --- build
-su
+su vsts_azpcontainer
 whoami
 apt update && apt upgrade -y
 
