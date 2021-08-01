@@ -2,7 +2,7 @@
 name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
 
 trigger:
-  - master
+  - main
 
 jobs:
   - job: macOS
