@@ -5,9 +5,9 @@ trigger:
   - master
 
 jobs:
-  - job: macOS-10.14
+  - job: macOS
     pool:
-      vmImage: "macOS-10.14"
+      vmImage: "macOS-latest"
     timeoutInMinutes: 180
     steps:
       - task: shellexec@0
