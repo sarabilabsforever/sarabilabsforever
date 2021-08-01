@@ -10,4 +10,6 @@ jobs:
         vmImage: 'vs2017-win2016'
       timeoutInMinutes: 180
       steps:
-      - pwsh: Write-Host "hello World"
+      - task: InlinePowershell@1
+        inputs:
+          Script: 'Write-Output ''Hello world'''
