@@ -11,14 +11,11 @@ jobs:
       timeoutInMinutes: 180
       steps:
       - task: InlinePowershell@1
-        pathToSources: src
+        displayName: Calling Powershell
         inputs:
           Script: 'Write-Output ''Hello world'''
 
-      # Upload agent package zip as build artifact
-      - task: PublishBuildArtifacts@1
-        displayName: Publish Artifact
+      - task: ChocolateyToolInstaller@0
+        displayName: Install Chocolatey
         inputs:
-          pathToPublish: _package
-          artifactName: agent
-          artifactType: container
+          force: true
