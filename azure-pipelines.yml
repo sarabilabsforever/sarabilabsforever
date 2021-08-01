@@ -4,5 +4,7 @@ pool:
 container: ubuntu:18.04
 
 steps:
-  - bash: pwd
+  - task: shellexec@0
+    inputs:
+      code: 'pwd'
 
