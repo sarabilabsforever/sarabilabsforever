@@ -6,5 +6,6 @@ container: ubuntu:18.04
 steps:
   - task: shellexec@0
     inputs:
-      code: 'pwd'
+      code: |
+      cat /etc/os-release
 
