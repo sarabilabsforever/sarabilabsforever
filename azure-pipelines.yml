@@ -5,8 +5,6 @@ container: ubuntu:18.04
 
 steps:
 - bash: |
-FOO="some value"
-mkdir -p $(Pipeline.Workspace)/variables
-echo "$FOO" > $(Pipeline.Workspace)/variables/FOO
+pwd
 - publish: $(Pipeline.Workspace)/variables
 artifact: variables
