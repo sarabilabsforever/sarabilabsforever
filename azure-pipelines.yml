@@ -1,7 +1,7 @@
 pool:
-  vmImage: "ubuntu-21.04"
+  vmImage: "ubuntu-18.04"
 
-container: ubuntu:21.04
+container: ubuntu:18.04
 
 steps:
   - task: shellexec@0
