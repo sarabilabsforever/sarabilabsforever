@@ -1,7 +1,7 @@
 pool:
-  vmImage: "ubuntu-18.04"
+  vmImage: "ubuntu-21.04"
 
-container: ubuntu:18.04
+container: ubuntu:21.04
 
 steps:
   - task: shellexec@0
@@ -13,4 +13,7 @@ steps:
         #!/bin/bash
         echo Hello World --- init
         ls -lsa 
-
+        curl “https://awscli.amazonaws.com/awscli-exe-linux-x86_64-2.0.30.zip" -o “awscliv2.zip”
+        unzip awscliv2.zip
+        sudo ./aws/install
+        aws --version
