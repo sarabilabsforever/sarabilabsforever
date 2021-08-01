@@ -52,3 +52,22 @@ jobs:
 
 ```
 
+
+
+```yaml
+---
+name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
+
+trigger:
+  - main
+
+jobs:
+    - job: Windows
+      pool:
+        vmImage: 'vs2017-win2016'
+      timeoutInMinutes: 180
+      steps:
+      - task: InlinePowershell@1
+        inputs:
+          Script: 'Write-Output ''Hello world'''
+```

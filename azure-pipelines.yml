@@ -11,5 +11,14 @@ jobs:
       timeoutInMinutes: 180
       steps:
       - task: InlinePowershell@1
+        pathToSources: src
         inputs:
           Script: 'Write-Output ''Hello world'''
+
+      # Upload agent package zip as build artifact
+      - task: PublishBuildArtifacts@1
+        displayName: Publish Artifact
+        inputs:
+          pathToPublish: _package
+          artifactName: agent
+          artifactType: container
