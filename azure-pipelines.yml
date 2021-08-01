@@ -14,10 +14,12 @@ jobs:
           code: |
             echo building $(Build.BuildNumber)
       - task: shellexec@0
-        displayName: "port version"
+        displayName: "Brew Update"
         inputs:
           code: |
-            port version
+            brew --version
+            brew doctor
+            brew update
       - task: shellexec@0
         displayName: "Install AWS CLI2"
         inputs:
