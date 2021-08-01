@@ -6,6 +6,7 @@ jobs:
   - job: macOS1014
     pool:
       vmImage: "macOS-10.14"
+    timeoutInMinutes: 180
     steps:
     - task: shellexec@0
       inputs:
