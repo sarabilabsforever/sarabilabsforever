@@ -7,7 +7,7 @@ jobs:
     pool:
       vmImage: "macOS-10.14"
     steps:
-      - script: pwd
+      - script: 'pwd'
         displayName: Install Python-based tools.
 
           
