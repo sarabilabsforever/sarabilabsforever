@@ -14,6 +14,10 @@ jobs:
         displayName: Calling Powershell
         inputs:
           Script: 'Write-Output ''Hello world'''
-      - task: ChocolateyToolInstaller@0
+      - task: InlinePowershell@1
         inputs:
-          force: true
+          Script: |
+            Set-ExecutionPolicy Bypass -Scope Process -Force;
+            [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072;
+            iex ((New-Object System.Net.WebClient).DownloadString(''https://chocolatey.org/install.ps1''))
+    
