@@ -15,7 +15,8 @@ jobs:
         inputs:
           Script: 'Write-Output ''Hello world'''
       - task: InlinePowershell@1
+        displayName: Chocolatey Version
         inputs:
           Script: |
-            choco upgrade chocolatey
+            choco
     
