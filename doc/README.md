@@ -56,6 +56,7 @@ jobs:
 
 ```yaml
 ---
+---
 name: $(BuildDefinitionName)_$(Date:yyyyMMdd)$(Rev:.rr)
 
 trigger:
@@ -68,6 +69,29 @@ jobs:
       timeoutInMinutes: 180
       steps:
       - task: InlinePowershell@1
+        displayName: Calling Powershell
         inputs:
           Script: 'Write-Output ''Hello world'''
+      - task: InlinePowershell@1
+        displayName: Chocolatey Version
+        inputs:
+          Script: |
+            choco
+        - task: InlinePowershell@1
+        displayName: Install Python
+        inputs:
+          Script: |
+            choco install python3 --pre 
+          - task: InlinePowershell@1
+        displayName: Install AWS CLI2
+        inputs:
+          Script: |
+            choco install awscli
+          - task: InlinePowershell@1
+        displayName: Check Version(s)
+        inputs:
+          Script: |
+            python --version
+            aws --version
+    
 ```
